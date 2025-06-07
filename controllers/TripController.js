@@ -4,7 +4,7 @@ const Itinerary = require('../models/Itinerary');
 const getAllTrips = async (req, res) => {
   try {
     const trips = await Trip.find() 
-      .sort({ featured: -1, createdAt: -1 }); 
+      .sort({createdAt: 1}); 
 
     res.json({
       success: true,
