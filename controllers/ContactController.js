@@ -58,6 +58,23 @@ const uploadImage = async (req, res) => {
   }
 };
 
+const dummyResponse = async (req, res) => {
+  try {
+    res.status(500).json({
+      success: false,
+      message: 'Dummy Response',
+    });
+  } catch (error) {
+    console.error('Upload error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Error while uploading image',
+      error: error.message,
+    });
+  }
+};
+
+
 module.exports = {
-  saveContactInfo,uploadImage
+  saveContactInfo,uploadImage,dummyResponse
 };
